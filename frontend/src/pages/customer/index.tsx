@@ -69,6 +69,14 @@ function Customers() {
     },
 
     {
+      title: "ที่อยู่",
+
+      dataIndex: "address",
+
+      key: "address",
+    },
+
+    {
       title: "วัน/เดือน/ปี เกิด",
 
       key: "birthday",

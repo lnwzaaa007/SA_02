@@ -22,6 +22,7 @@ type (
        FirstName string    `json:"first_name"`
        LastName  string    `json:"last_name"`
        Email     string    `json:"email"`
+       Address   string    `json:"address"`
        Age       uint8     `json:"age"`
        Password  string    `json:"password"`
        BirthDay  time.Time `json:"birthday"`
@@ -63,6 +64,7 @@ func SignUp(c *gin.Context) {
        FirstName: payload.FirstName,
        LastName:  payload.LastName,
        Email:     payload.Email,
+       Address:   payload.Address,
        Age:       payload.Age,
        Password:  hashedPassword,
        BirthDay:  payload.BirthDay,
