@@ -33,15 +33,10 @@ import dayjs from "dayjs";
 
 function CustomerEdit() {
   const navigate = useNavigate();
-
   const { id } = useParams<{ id: any }>();
-
   const [messageApi, contextHolder] = message.useMessage();
-
   const [gender, setGender] = useState<GenderInterface[]>([]);
-
   const [form] = Form.useForm();
-
   const onGetGender = async () => {
     let res = await GetGender();
 
@@ -72,6 +67,7 @@ function CustomerEdit() {
         email: res.data.email,
 
         address: res.data.address,
+        phone: res.data.phone,
         
         birthday: dayjs(res.data.birthday),
 
@@ -194,6 +190,27 @@ function CustomerEdit() {
                 <Input />
               </Form.Item>
             </Col>
+
+
+                  <Col xs={24} sm={24} md={24} lg={24} xl={12}>
+                    <Form.Item
+                      label="โทรศัพท์"
+                      name="phone"
+                      rules={[
+                        {
+                          required: true,
+                          message: "กรุณากรอกเบอร์โทรศัพท์!",
+                        },
+
+                        {
+                          pattern: /^0[0-9]{8,9}$/, // เบอร์โทรไทยเริ่มด้วย 0 และยาว 9-10 หลัก
+                          message: "รูปแบบเบอร์โทรไม่ถูกต้อง!",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </Col>
 
              <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                 <Form.Item

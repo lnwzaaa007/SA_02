@@ -23,10 +23,12 @@ type (
        LastName  string    `json:"last_name"`
        Email     string    `json:"email"`
        Address   string    `json:"address"`
+       Phone     string    `json:"phone"`
        Age       uint8     `json:"age"`
        Password  string    `json:"password"`
        BirthDay  time.Time `json:"birthday"`
        GenderID  uint      `json:"gender_id"`
+       LastLogin time.Time `json:"last_login"`
    }
 )
 
@@ -65,6 +67,7 @@ func SignUp(c *gin.Context) {
        LastName:  payload.LastName,
        Email:     payload.Email,
        Address:   payload.Address,
+       Phone:     payload.Phone,
        Age:       payload.Age,
        Password:  hashedPassword,
        BirthDay:  payload.BirthDay,
@@ -79,6 +82,7 @@ func SignUp(c *gin.Context) {
 }
 
 func SignIn(c *gin.Context) {
+    db := config.DB()
    var payload Authen
    var user entity.Users
    if err := c.ShouldBindJSON(&payload); err != nil {
@@ -111,4 +115,7 @@ func SignIn(c *gin.Context) {
        return
    }
    c.JSON(http.StatusOK, gin.H{"token_type": "Bearer", "token": signedToken, "id": user.ID})
+   user.LastLogin = time.Now()
+   db.Save(&user)
+
 }

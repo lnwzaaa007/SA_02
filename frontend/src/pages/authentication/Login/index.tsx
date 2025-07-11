@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Button, Card, Form, Input, message, Flex, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import { SignIn } from "../../../services/https";
@@ -7,6 +8,10 @@ import logo from "../../../assets/logo.png";
 function SignInPages() {
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
+  const inputRef = useRef<HTMLInputElement>(null); 
+  useEffect(()=>{
+    inputRef.current?.focus();
+  }, []);
   const onFinish = async (values: SignInInterface) => {
     let res = await SignIn(values);
 
@@ -56,7 +61,7 @@ function SignInPages() {
                     { required: true, message: "Please input your username!" },
                   ]}
                 >
-                  <Input />
+                  <Input ref={inputRef as any}/>
                 </Form.Item>
 
                 <Form.Item

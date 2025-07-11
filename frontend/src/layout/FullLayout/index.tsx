@@ -134,7 +134,7 @@ const FullLayout: React.FC = () => {
         </Content>
 
         <Footer style={{ textAlign: "center" }}>
-          System Analysis and Design 1/67
+          System Analysis and Design 1/68
         </Footer>
       </Layout>
     </Layout>

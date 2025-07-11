@@ -42,6 +42,7 @@ func SetupDatabase() {
        LastName:  "Analysis",
        Email:     "sa@gmail.com",
        Address:   "sut",
+       Phone:     "0655842940",
        Age:       80,
        Password:  hashedPassword,
        BirthDay:  BirthDay,

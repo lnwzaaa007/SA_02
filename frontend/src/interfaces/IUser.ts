@@ -9,4 +9,5 @@ export interface UsersInterface {
   GenderID?: number;
   Password?: string;
   Address?: string;
+
 }

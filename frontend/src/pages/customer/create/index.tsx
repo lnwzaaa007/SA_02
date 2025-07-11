@@ -139,6 +139,27 @@ function CustomerCreate() {
               </Form.Item>
             </Col>
 
+
+                  <Col xs={24} sm={24} md={24} lg={24} xl={12}>
+                    <Form.Item
+                      label="โทรศัพท์"
+                      name="phone"
+                      rules={[
+                        {
+                          required: true,
+                          message: "กรุณากรอกเบอร์โทรศัพท์!",
+                        },
+
+                        {
+                          pattern: /^0[0-9]{8,9}$/, // เบอร์โทรไทยเริ่มด้วย 0 และยาว 9-10 หลัก
+                          message: "รูปแบบเบอร์โทรไม่ถูกต้อง!",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </Form.Item>
+                  </Col>
+
             <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                     <Form.Item
                       label="ที่อยู่"

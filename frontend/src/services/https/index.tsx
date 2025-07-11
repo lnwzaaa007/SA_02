@@ -33,6 +33,20 @@ async function GetUsers() {
     .catch((e) => e.response);
 }
 
+async function GetUsersThisHour() {
+  return await axios
+    .get(`${apiUrl}/users/this-hour`, requestOptions)
+    .then((res) => res)
+    .catch((e) => e.response);
+}
+
+async function GetCountUser() {
+  return await axios
+    .get(`${apiUrl}/users/count`, requestOptions)
+    .then((res) => res)
+    .catch((e) => e.response);
+}
+
 async function GetUsersById(id: string) {
   return await axios
     .get(`${apiUrl}/user/${id}`, requestOptions)
@@ -65,8 +79,10 @@ export {
   SignIn,
   GetGender,
   GetUsers,
+  GetUsersThisHour,
   GetUsersById,
   UpdateUsersById,
   DeleteUsersById,
   CreateUser,
+  GetCountUser,
 };

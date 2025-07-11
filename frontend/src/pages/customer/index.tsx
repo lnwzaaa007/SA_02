@@ -9,17 +9,12 @@ import dayjs from "dayjs";
 
 function Customers() {
   const navigate = useNavigate();
-
   const [users, setUsers] = useState<UsersInterface[]>([]);
-
   const [messageApi, contextHolder] = message.useMessage();
-
   const myId = localStorage.getItem("id");
-
   const columns: ColumnsType<UsersInterface> = [
     {
       title: "",
-
       render: (record) => (
         <>
           {myId == record?.ID ? (
@@ -38,65 +33,55 @@ function Customers() {
 
     {
       title: "ลำดับ",
-
       dataIndex: "ID",
-
       key: "id",
     },
 
     {
       title: "ชื่อ",
-
       dataIndex: "first_name",
-
       key: "first_name",
     },
 
     {
       title: "นามสกุุล",
-
       dataIndex: "last_name",
-
       key: "last_name",
     },
 
     {
       title: "อีเมล",
-
       dataIndex: "email",
-
       key: "email",
     },
 
     {
+      title: "โทรศัพท์",
+      dataIndex: "phone",
+      key: "phone",
+    },
+
+    {
       title: "ที่อยู่",
-
       dataIndex: "address",
-
       key: "address",
     },
 
     {
       title: "วัน/เดือน/ปี เกิด",
-
       key: "birthday",
-
       render: (record) => <>{dayjs(record.birthday).format("DD/MM/YYYY")}</>,
     },
 
     {
       title: "อายุ",
-
       dataIndex: "age",
-
       key: "age",
     },
 
     {
       title: "เพศ",
-
       key: "gender",
-
       render: (record) => <>{record?.gender?.gender}</>,
     },
 
