@@ -1,7 +1,8 @@
 import  type{ UsersInterface } from "../../interfaces/IUser";
 import type{ SignInInterface } from "../../interfaces/SignIn";
 import axios from "axios";
-const apiUrl = "http://localhost:8000";
+// const apiUrl = "http://localhost:8000";
+const apiUrl = "https://sa-02-l25w-g6klc00jd-mags-projects-86fbc19c.vercel.app";
 const Authorization = localStorage.getItem("token");
 const Bearer = localStorage.getItem("token_type");
 
