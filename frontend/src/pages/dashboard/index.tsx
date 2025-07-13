@@ -160,7 +160,7 @@ import {
   StockOutlined,
 } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
-import { GetUsersThisHour, DeleteUsersById } from "../../services/https/index";
+import { GetUsersThisHour } from "../../services/https/index";
 import { GetCountUser } from "../../services/https/index";
 interface DataType {
   key: string;

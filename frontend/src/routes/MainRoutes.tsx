@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-import React from "react";
+// import React from "react";
 
 import type { RouteObject } from "react-router-dom";
 
